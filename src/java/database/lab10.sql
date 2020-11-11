@@ -1,13 +1,13 @@
-DROP SCHEMA IF EXISTS `notesdb`;
-CREATE SCHEMA IF NOT EXISTS `notesdb` DEFAULT CHARACTER SET latin1;
-USE `notesdb`;
+DROP SCHEMA IF EXISTS `lab10`;
+CREATE SCHEMA IF NOT EXISTS `lab10` DEFAULT CHARACTER SET latin1;
+USE `lab10`;
 
-CREATE TABLE IF NOT EXISTS `notesdb`.`role` (
+CREATE TABLE IF NOT EXISTS `lab10`.`role` (
   `role_id` INT(11) NOT NULL,
   `role_name` VARCHAR(25) NOT NULL,
   PRIMARY KEY (`role_id`));
 
-CREATE TABLE IF NOT EXISTS `notesdb`.`user` (
+CREATE TABLE IF NOT EXISTS `lab10`.`user` (
   `email` VARCHAR(40) NOT NULL,
   `active` TINYINT(1) NOT NULL DEFAULT '1',
   `first_name` VARCHAR(20) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `notesdb`.`user` (
   PRIMARY KEY (`email`),
   CONSTRAINT `fk_user_role`
     FOREIGN KEY (`role`)
-    REFERENCES `notesdb`.`role` (`role_id`)
+    REFERENCES `lab10`.`role` (`role_id`)
 );
 
 
